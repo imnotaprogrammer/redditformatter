@@ -11,7 +11,10 @@ string intro()
 
 	cout << "Gimme a sentence: ";
 	
-	getline(cin,sent);
+	//getline(cin,sent);
+
+	cin >> sent;
+
 	cout << "Your current sentence is: " << sent << '\n';
 
 	return sent;	
@@ -43,11 +46,10 @@ string subscriptor(string sent)
 	return s;
 }
 
-void general(function<void()> intro, function<string(string sent)> lolcats)
+/*string displayMenu()
 {
-	
-}
 
+};*/
 
 
 int main(int argc, char** argv)
@@ -55,41 +57,34 @@ int main(int argc, char** argv)
 
 
 	char choice;
+	string temp, result;
 	
 	do
 	{
 		cout << "\n============ MENU ===============\n";
-		cout << "1. Superscriptor"
-		     << "2. Bolder"
-		     << "3. Strikethrougher"
-		     << "4. Coder"
-		     << "5. Quoter"
+		cout << "1. Superscriptor\n"
+		     << "2. Bolder\n"
+		     << "3. Strikethrougher\n"
+		     << "4. Coder\n"
+		     << "5. Quoter\n"
 		     << "6. Exit\n";
+		cout << "==================================\n";
 
-		cout << "\n==================================\n";
+		cout << " > ";
+		cin >> choice;
+	
+		switch(choice)
+		{
+			case '1': temp = intro(); result = subscriptor(temp);
+			break;
+			default:
+			break;
+		}
 
 	}
 	while(choice != '6');	
 
-	switch(choice)
-	{
-		case '1': //intro(); subscriptor();
-		break;
-		case '2': 
-		break;
-		case '3': 
-		break;
-		case '4': 
-		break;
-		case '5': 
-		break;
-		case '6': 
-		break;
-		default:
-		break;
-	}
-
-	ender(s);
+	ender(result);
 
 	return 0;
 }
